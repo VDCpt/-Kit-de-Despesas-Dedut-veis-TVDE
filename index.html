@@ -106,7 +106,7 @@
         <div class="checklist" id="checklist-veiculo">
             <div class="checklist-item" onclick="toggleCheck(this)">
                 <input type="checkbox">
-                <span class="item-text">Combustível (Gasolina/Diesel/GPL)</span>
+                <span class="item-text">Combustível (Gasolina/Diesel/GPL) **e Eletricidade (Carregamentos)**</span>
                 <span class="deducao-tag">50% a 100% (depende do IVA)</span>
             </div>
             <div class="checklist-item" onclick="toggleCheck(this)">
@@ -160,6 +160,11 @@
                 <span class="deducao-tag">100%</span>
             </div>
         </div>
+        
+        <div class="info-box" style="background: #e6f7ff; border-color: #91d5ff;">
+            <strong>🔋 Nota Especial para VE (Carros Elétricos):</strong><br>
+            Se o seu veículo é elétrico, tem potencial para deduzir o **IVA da eletricidade** a 100%, desde que tenha um sistema de medição separado (wallbox) ou use faturas exclusivas de carregamento público. Confirme sempre com o seu Contabilista o tratamento fiscal do IVA nas faturas de eletricidade e na aquisição/depreciação do veículo.
+        </div>
 
         <div class="info-box">
             <strong>✅ Dica da Voz Do Condutor:</strong><br>
@@ -175,9 +180,7 @@
         function toggleCheck(element) {
             const checkbox = element.querySelector('input[type="checkbox"]');
             if (checkbox) {
-                // Alternar o estado do checkbox
                 checkbox.checked = !checkbox.checked;
-                // Impedir que o clique no div também dispare o clique no checkbox (já o fizemos acima)
                 event.stopPropagation();
             }
         }
