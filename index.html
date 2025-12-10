@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>"Kit" de Despesas Dedutíveis TVDE (IRS)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f6f8;
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        h1 {
+            text-align: center;
+            color: #1a73e8;
+            margin-bottom: 10px;
+        }
+        h2 {
+            text-align: center;
+            font-weight: normal;
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .section-title {
+            color: #333;
+            font-size: 1.2em;
+            margin-top: 25px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #ccc;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        .checklist-item input[type="checkbox"] {
+            margin-right: 15px;
+            min-width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .item-text {
+            flex-grow: 1;
+            font-size: 1.0em;
+            font-weight: 500;
+        }
+        .deducao-tag {
+            background-color: #34a853; /* Verde para dedutível */
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+        .info-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 8px;
+            font-size: 0.9em;
+            color: #856404;
+        }
+        .info-box strong {
+            color: #d93025; /* Vermelho para o aviso principal */
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            padding: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>"Kit" de Despesas Dedutíveis TVDE (IRS)</h1>
+        <h2>Lista interativa de despesas 100% ou parcialmente dedutíveis para a sua atividade</h2>
+
+        <div class="info-box">
+            <strong>⚠️ Atenção: Regime Simplificado</strong><br>
+            Se está no Regime Simplificado, a maioria dos motoristas TVDE beneficia da **dedução automática de 65%** do rendimento (ou seja, só 35% é tributado). A maioria das despesas listadas abaixo só precisa de ser contabilizada se o seu total anual (com IVA) for **superior** a esses 65% de dedução automática.
+        </div>
+
+        <h3 class="section-title">Veículo e Operação (Regras Gerais)</h3>
+        
+        <div class="checklist" id="checklist-veiculo">
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">Combustível (Gasolina/Diesel/GPL)</span>
+                <span class="deducao-tag">50% a 100% (depende do IVA)</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">Reparações e Manutenção (Trocas de óleo, pneus, peças)</span>
+                <span class="deducao-tag">100%</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">Seguros Obrigatórios (Responsabilidade Civil)</span>
+                <span class="deducao-tag">100%</span>
+            </div>
+             <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">Portagens e Estacionamento (No exercício da atividade)</span>
+                <span class="deducao-tag">100%</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">Despesas com a Plataforma (Comissões/Taxas de Serviço)</span>
+                <span class="deducao-tag">100%</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">IUC (Imposto Único de Circulação)</span>
+                <span class="deducao-tag">100%</span>
+            </div>
+        </div>
+
+        <h3 class="section-title">Equipamento e Serviços (100% Dedutível)</h3>
+
+        <div class="checklist" id="checklist-servicos">
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">Serviços de Contabilidade (TOC)</span>
+                <span class="deducao-tag">100%</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">Comunicações (Internet, Telemóvel – parte afeta à atividade)</span>
+                <span class="deducao-tag">50% a 100% (com justificação)</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">Equipamento (Suportes para telemóvel, Carregadores, Tablet para App)</span>
+                <span class="deducao-tag">100%</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span class="item-text">Formação Profissional (Cursos relacionados com a atividade)</span>
+                <span class="deducao-tag">100%</span>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>✅ Dica da Voz Do Condutor:</strong><br>
+            Guarde **TODAS** as faturas com o seu NIF e o seu Número de Contribuinte. Mesmo que não sejam usadas para a dedução principal (os 65% automáticos), são essenciais para justificar os seus rendimentos perante a Autoridade Tributária.
+        </div>
+    </div>
+
+    <footer>
+        Desenvolvido por Voz Do Condutor — Plataforma de apoio ao motorista TVDE
+    </footer>
+
+    <script>
+        function toggleCheck(element) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            if (checkbox) {
+                // Alternar o estado do checkbox
+                checkbox.checked = !checkbox.checked;
+                // Impedir que o clique no div também dispare o clique no checkbox (já o fizemos acima)
+                event.stopPropagation();
+            }
+        }
+    </script>
+</body>
+</html>
