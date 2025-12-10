@@ -62,7 +62,7 @@
             font-weight: 500;
         }
         .deducao-tag {
-            background-color: #34a853; /* Verde para dedutível */
+            background-color: #34a853; 
             color: white;
             padding: 4px 8px;
             border-radius: 4px;
@@ -80,7 +80,7 @@
             color: #856404;
         }
         .info-box strong {
-            color: #d93025; /* Vermelho para o aviso principal */
+            color: #d93025; 
         }
         footer {
             margin-top: 50px;
@@ -88,6 +88,43 @@
             font-size: 14px;
             color: #777;
             padding: 20px; 
+        }
+        /* ESTILO DO BOTÃO DE IMPRIMIR */
+        .btn-print {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 25px;
+            width: 100%;
+        }
+        .btn-print:hover {
+            background: #0056b3;
+        }
+
+        /* Otimização para Impressão/PDF */
+        @media print {
+            .btn-print, footer {
+                display: none; /* Oculta o botão e o rodapé na impressão */
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+                margin: 0;
+                padding: 0;
+            }
+            /* Garante que os checkboxes e texto são impressos */
+            .checklist-item {
+                display: flex;
+                -webkit-print-color-adjust: exact; /* Para cores de fundo */
+                print-color-adjust: exact;
+            }
+            .deducao-tag {
+                background-color: #34a853 !important; 
+            }
         }
     </style>
 </head>
@@ -170,6 +207,9 @@
             <strong>✅ Dica da Voz Do Condutor:</strong><br>
             Guarde **TODAS** as faturas com o seu NIF e o seu Número de Contribuinte. Mesmo que não sejam usadas para a dedução principal (os 65% automáticos), são essenciais para justificar os seus rendimentos perante a Autoridade Tributária.
         </div>
+        
+        <button class="btn-print" onclick="window.print()">🖨️ Imprimir ou Exportar para PDF</button>
+
     </div>
 
     <footer>
